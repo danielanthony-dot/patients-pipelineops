@@ -20,8 +20,6 @@
     padding: 13px 36px; border-bottom: 1px solid rgba(0,0,0,0.08);
     position: relative; z-index: 10; flex-shrink: 0; background: #ffffff;
   }
-  .logo { display: flex; align-items: center; gap: 10px; }
-  .logo-icon { width: 28px; height: 28px; border-radius: 7px; background: linear-gradient(135deg,#1B3A6B,#3B7DD8); display: flex; align-items: center; justify-content: center; }
   .logo-text { font-family: sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: #0F1623; }
   #dots { display: flex; gap: 6px; align-items: center; }
   .dot { height: 7px; border-radius: 4px; border: none; cursor: pointer; transition: all 0.25s; background: rgba(0,0,0,0.12); width: 7px; }
@@ -41,6 +39,7 @@
   .nav-btn:disabled { color: rgba(0,0,0,0.2); cursor: default; }
   .nav-btn.primary { background: #0F1623; color: #ffffff; font-weight: 600; border-color: #0F1623; }
   .nav-btn.primary:disabled { background: rgba(0,0,0,0.05); color: rgba(0,0,0,0.2); border-color: transparent; }
+  .nav-btn.overview-btn { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.1); color: rgba(0,0,0,0.5); font-size: 11px; padding: 7px 14px; }
   #center-label { font-family: sans-serif; font-size: 10px; color: rgba(0,0,0,0.22); letter-spacing: 0.15em; min-width: 120px; text-align: center; }
 
   /* SLIDES */
@@ -49,7 +48,6 @@
 
   /* ── OVERVIEW ── */
   #slide-0 { align-items: center; justify-content: center; padding: 24px 48px; gap: 24px; background: #F4F6FA; }
-  .overview-eyebrow { color: rgba(0,0,0,0.35); font-family: sans-serif; font-size: 10px; letter-spacing: 0.22em; }
   .overview-title { font-size: 34px; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; text-align: center; color: #0F1623; }
   .overview-title span { color: rgba(0,0,0,0.38); font-size: 26px; }
   .pillar-cards { display: flex; gap: 10px; width: 100%; max-width: 900px; }
@@ -58,9 +56,6 @@
   .pillar-card-num { font-family: sans-serif; font-size: 9px; letter-spacing: 0.18em; margin-bottom: 7px; font-weight: 700; }
   .pillar-card-kw { font-family: sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; line-height: 1.3; color: #0F1623; }
   .pillar-card-sub { margin-top: 6px; color: rgba(0,0,0,0.38); font-family: sans-serif; font-size: 9px; line-height: 1.4; }
-  .loop-label { display: flex; align-items: center; gap: 8px; opacity: 0.3; }
-  .loop-line { width: 140px; height: 1px; }
-  .loop-text { color: #0F1623; font-family: sans-serif; font-size: 9px; letter-spacing: 0.14em; white-space: nowrap; }
   .guarantee-box { background: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; padding: 16px 40px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
   .guarantee-box-main { font-family: sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; color: #0F1623; }
   .guarantee-box-main span { color: rgba(0,0,0,0.45); }
@@ -82,6 +77,16 @@
   .pillar-subtitle { color: rgba(0,0,0,0.42); font-family: sans-serif; font-size: 11px; line-height: 1.5; position: relative; z-index: 1; }
   .pillar-tagline { border-radius: 7px; padding: 7px 11px; font-family: sans-serif; font-size: 9px; letter-spacing: 0.04em; line-height: 1.6; position: relative; z-index: 1; }
 
+  /* Back to overview btn inside left panel */
+  .back-overview-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    margin-top: 6px; font-family: sans-serif; font-size: 10px;
+    color: rgba(0,0,0,0.38); cursor: pointer; background: none; border: none;
+    padding: 0; position: relative; z-index: 1; text-decoration: underline;
+    text-underline-offset: 2px; text-decoration-color: rgba(0,0,0,0.18);
+  }
+  .back-overview-btn:hover { color: rgba(0,0,0,0.65); }
+
   /* Right panel */
   .pillar-right { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 24px 38px; gap: 0; overflow: hidden; background: #F4F6FA; }
 
@@ -99,43 +104,6 @@
   /* Feature pills */
   .feature-pills { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 14px; padding-left: 26px; }
   .feature-pill { display: flex; align-items: center; gap: 6px; border-radius: 20px; padding: 4px 11px; font-family: sans-serif; font-size: 10px; font-weight: 500; }
-
-  /* ── INVESTMENT ── */
-  #slide-7 { padding: 20px 44px; gap: 14px; overflow: auto; background: #F4F6FA; }
-  .invest-eyebrow { color: rgba(0,0,0,0.35); font-family: sans-serif; font-size: 10px; letter-spacing: 0.22em; }
-  .invest-title { font-size: 26px; font-weight: 400; letter-spacing: -0.02em; color: #0F1623; }
-  .invest-body { display: flex; gap: 16px; align-items: flex-start; flex: 1; }
-  .offer-card { flex: 0 0 280px; border-radius: 12px; padding: 20px; background: #ffffff; border: 1px solid rgba(59,125,216,0.25); box-shadow: 0 2px 12px rgba(59,125,216,0.08); display: flex; flex-direction: column; gap: 12px; position: relative; }
-  .offer-badge { position: absolute; top: -10px; right: 14px; background: linear-gradient(90deg,#3B7DD8,#7EB8FF); border-radius: 20px; padding: 2px 11px; font-family: sans-serif; font-size: 8px; font-weight: 700; letter-spacing: 0.12em; color: white; }
-  .offer-price { font-size: 34px; font-weight: 300; letter-spacing: -0.02em; color: #0F1623; }
-  .offer-price-sub { color: rgba(0,0,0,0.38); font-family: sans-serif; font-size: 10px; margin-top: 2px; }
-  .hdivider { height: 1px; background: rgba(0,0,0,0.07); }
-  .offer-features { display: flex; flex-direction: column; gap: 7px; }
-  .offer-feature { display: flex; gap: 7px; font-family: sans-serif; font-size: 11px; color: rgba(0,0,0,0.55); align-items: center; }
-  .offer-feature.hl { color: #0F1623; font-weight: 600; }
-  .offer-check { color: #3B7DD8; flex-shrink: 0; }
-  .included-badge { background: rgba(59,125,216,0.1); border: 1px solid rgba(59,125,216,0.25); border-radius: 4px; padding: 1px 5px; font-size: 8px; color: #3B7DD8; margin-left: 2px; letter-spacing: 0.05em; flex-shrink: 0; }
-  .guar-strip { background: rgba(59,125,216,0.06); border: 1px solid rgba(59,125,216,0.18); border-radius: 7px; padding: 9px 11px; }
-  .guar-strip-row { display: flex; align-items: center; gap: 6px; }
-  .guar-strip-text { font-family: sans-serif; font-size: 10px; color: #3B7DD8; font-weight: 600; }
-  .guar-strip-sub { font-family: sans-serif; font-size: 9px; color: rgba(59,125,216,0.6); margin-top: 4px; padding-left: 20px; }
-  .breakdown-col { flex: 1; display: flex; flex-direction: column; gap: 9px; }
-  .breakdown-label { font-family: sans-serif; font-size: 9px; letter-spacing: 0.2em; color: rgba(0,0,0,0.3); }
-  .cost-row { background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 0 9px 9px 0; padding: 11px 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-  .cost-icon-wrap { width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-  .cost-lbl { font-family: sans-serif; font-size: 9px; color: rgba(0,0,0,0.35); letter-spacing: 0.06em; margin-bottom: 2px; }
-  .cost-amt { font-family: sans-serif; font-size: 16px; font-weight: 600; color: #0F1623; }
-  .cost-sub { color: rgba(0,0,0,0.3); font-family: sans-serif; font-size: 9px; margin-left: 6px; }
-  .cost-note { font-family: sans-serif; font-size: 9px; color: rgba(0,0,0,0.3); text-align: right; max-width: 130px; line-height: 1.5; }
-  .adspend-box { background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 9px; padding: 13px 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-  .adspend-lbl { font-family: sans-serif; font-size: 9px; letter-spacing: 0.2em; color: rgba(0,0,0,0.32); margin-bottom: 10px; }
-  .adspend-row { display: flex; align-items: center; gap: 11px; }
-  .adspend-row + .adspend-row { margin-top: 8px; }
-  .adspend-spend { width: 78px; font-family: sans-serif; font-size: 11px; color: rgba(0,0,0,0.5); flex-shrink: 0; }
-  .adspend-bar-bg { flex: 1; height: 6px; background: rgba(0,0,0,0.07); border-radius: 3px; overflow: hidden; }
-  .adspend-bar-fill { height: 100%; border-radius: 3px; }
-  .adspend-result { width: 155px; font-family: sans-serif; font-size: 11px; font-weight: 600; flex-shrink: 0; text-align: right; }
-  .adspend-note { font-family: sans-serif; font-size: 9px; color: rgba(0,0,0,0.28); margin-top: 9px; }
 </style>
 </head>
 <body>
@@ -186,10 +154,6 @@
       <div class="pillar-card-sub">Database Revenue</div>
     </div>
   </div>
-  <div class="guarantee-box">
-    <div class="guarantee-box-main">Backed by Performance Guarantees — <span>or You Don't Pay</span></div>
-    <div class="guarantee-box-note">written into the contract</div>
-  </div>
 </div>
 
 <!-- SLIDE 1: OFFER & MESSAGING -->
@@ -208,6 +172,7 @@
       <div class="pillar-title">Beat Your Market&#10;and Own Your Position</div>
       <div class="pillar-subtitle">A custom offer built around your agency's real advantages — so families choose you on sight.</div>
       <div class="pillar-tagline" style="background:rgba(59,125,216,0.1);border:1px solid rgba(59,125,216,0.25);color:rgba(59,125,216,0.85)">Positioning Audit · Custom Offer · Messaging Build</div>
+      <button class="back-overview-btn" onclick="goTo(0)">← Back to overview</button>
     </div>
     <div class="pillar-right">
       <div class="benefit-flow">
@@ -273,8 +238,9 @@
       <div class="pillar-badge" style="background:rgba(46,173,114,0.18);border:1px solid rgba(46,173,114,0.4);color:#2EAD72">Pillar 02</div>
       <div class="pillar-kw-label" style="color:#2EAD72">PAID LEAD GENERATION</div>
       <div class="pillar-title">Get In Front of&#10;the Right Families</div>
-      <div class="pillar-subtitle">Direct, business-to-consumer targeting — putting your agency in front of families actively searching for care.</div>
+      <div class="pillar-subtitle">Direct, business-to-consumer targeting — putting your agency in front of local families who match the profile of someone needing care or making care decisions for a loved one.</div>
       <div class="pillar-tagline" style="background:rgba(46,173,114,0.1);border:1px solid rgba(46,173,114,0.25);color:rgba(46,173,114,0.85)">Meta Ads · Custom Creative · Prequalified Traffic</div>
+      <button class="back-overview-btn" onclick="goTo(0)">← Back to overview</button>
     </div>
     <div class="pillar-right">
       <div class="benefit-flow">
@@ -296,7 +262,7 @@
           <div class="benefit-connector"><div class="benefit-dot" style="background:rgba(46,173,114,0.55)"></div><div class="benefit-line"></div></div>
           <div class="benefit-content">
             <div class="benefit-tag" style="color:rgba(46,173,114,0.7)">PREDICTABLE TRAFFIC</div>
-            <div class="benefit-text">Two Meta campaigns run simultaneously — one targeting seniors, one targeting adult children making decisions for a parent. Consistent lead flow every single month, regardless of referrals.</div>
+            <div class="benefit-text">One campaign targeting both seniors and adult children making care decisions for a loved one — simultaneously reaching both sides of the conversation with tailored messaging for each.</div>
           </div>
         </div>
         <div class="benefit-row">
@@ -310,7 +276,7 @@
       <div class="feature-pills" style="margin-top:16px">
         <div class="feature-pill" style="background:rgba(46,173,114,0.12);border:1px solid rgba(46,173,114,0.3);color:#2EAD72">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2EAD72" stroke-width="1.8"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10A15 15 0 0 1 12 2z" stroke="#2EAD72" stroke-width="1.8"/></svg>
-          Meta Ad Campaigns
+          Meta Ad Campaign
         </div>
         <div class="feature-pill" style="background:rgba(46,173,114,0.12);border:1px solid rgba(46,173,114,0.3);color:#2EAD72">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M3 5h18M7 12h10M10 19h4" stroke="#2EAD72" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -339,8 +305,9 @@
       <div class="pillar-badge" style="background:rgba(232,132,58,0.18);border:1px solid rgba(232,132,58,0.4);color:#E8843A">Pillar 03</div>
       <div class="pillar-kw-label" style="color:#E8843A">QUALIFICATION &amp; INTAKE</div>
       <div class="pillar-title">Focus on Closing,&#10;Not Chasing</div>
-      <div class="pillar-subtitle">A dedicated front-end system that qualifies every lead and books assessments — so you never waste time on the wrong conversations.</div>
+      <div class="pillar-subtitle">A dedicated front-end system that qualifies every lead and books consultation calls — so you walk into every conversation ready to close.</div>
       <div class="pillar-tagline" style="background:rgba(232,132,58,0.1);border:1px solid rgba(232,132,58,0.25);color:rgba(232,132,58,0.85)">AI Agent · CRM · Hired Intake Team</div>
+      <button class="back-overview-btn" onclick="goTo(0)">← Back to overview</button>
     </div>
     <div class="pillar-right">
       <div class="benefit-flow">
@@ -355,21 +322,21 @@
           <div class="benefit-connector"><div class="benefit-dot" style="background:rgba(232,132,58,0.75)"></div><div class="benefit-line"></div></div>
           <div class="benefit-content">
             <div class="benefit-tag" style="color:rgba(232,132,58,0.85)">DONE-FOR-YOU STAFFING</div>
-            <div class="benefit-text">We recruit, hire, and train a dedicated intake specialist for your agency. They dial warm, pre-qualified leads — not cold contacts — and their only job is booking in-home assessments.</div>
+            <div class="benefit-text">We recruit, hire, and train a dedicated intake specialist for your agency. They dial warm, pre-qualified leads and their sole focus is booking consultation calls with your team — nothing else.</div>
           </div>
         </div>
         <div class="benefit-row">
           <div class="benefit-connector"><div class="benefit-dot" style="background:rgba(232,132,58,0.55)"></div><div class="benefit-line"></div></div>
           <div class="benefit-content">
             <div class="benefit-tag" style="color:rgba(232,132,58,0.7)">AUTOMATED CRM PIPELINE</div>
-            <div class="benefit-text">Every lead is organized by intent level inside your CRM — so your team always knows exactly who to call, when to follow up, and where each prospect stands.</div>
+            <div class="benefit-text">Every lead is organized by intent level inside your CRM — so your team always knows exactly who to call, when to follow up, and where each prospect stands before the consultation.</div>
           </div>
         </div>
         <div class="benefit-row">
           <div class="benefit-connector"><div class="benefit-dot" style="background:rgba(232,132,58,0.35)"></div></div>
           <div class="benefit-content">
             <div class="benefit-tag" style="color:rgba(232,132,58,0.55)">THE OUTCOME</div>
-            <div class="benefit-text" style="color:rgba(0,0,0,0.55)">You spend your time on what actually generates revenue — in-home assessments and closing deals. Everything before that runs without you.</div>
+            <div class="benefit-text" style="color:rgba(0,0,0,0.55)">Your consultation calls are with pre-qualified, warmed-up prospects. You focus on the conversation that closes — your intake specialist handles everything that gets them there.</div>
           </div>
         </div>
       </div>
@@ -406,6 +373,7 @@
       <div class="pillar-title">Become the Most&#10;Trusted Name Locally</div>
       <div class="pillar-subtitle">Automated reputation management that builds your Google authority and protects your brand — on autopilot.</div>
       <div class="pillar-tagline" style="background:rgba(232,64,64,0.1);border:1px solid rgba(232,64,64,0.25);color:rgba(232,64,64,0.85)">Review Automation · Interception · Google Rankings</div>
+      <button class="back-overview-btn" onclick="goTo(0)">← Back to overview</button>
     </div>
     <div class="pillar-right">
       <div class="benefit-flow">
@@ -472,6 +440,7 @@
       <div class="pillar-title">Turn Happy Patients&#10;Into Your Sales Team</div>
       <div class="pillar-subtitle">A structured incentive scheme that turns your best patients into a word-of-mouth engine — running automatically after every positive review.</div>
       <div class="pillar-tagline" style="background:rgba(155,89,208,0.1);border:1px solid rgba(155,89,208,0.25);color:rgba(155,89,208,0.85)">Referral Incentive Scheme · Word of Mouth · Automated</div>
+      <button class="back-overview-btn" onclick="goTo(0)">← Back to overview</button>
     </div>
     <div class="pillar-right">
       <div class="benefit-flow">
@@ -538,6 +507,7 @@
       <div class="pillar-title">Recover Revenue&#10;Already in Your Database</div>
       <div class="pillar-subtitle">Every lead that went cold is an asset. Every quarter, we bring them back to life with a fresh offer — at near-zero cost.</div>
       <div class="pillar-tagline" style="background:rgba(58,174,204,0.1);border:1px solid rgba(58,174,204,0.25);color:rgba(58,174,204,0.85)">Database Mining · SMS + Email · Quarterly Cadence</div>
+      <button class="back-overview-btn" onclick="goTo(0)">← Back to overview</button>
     </div>
     <div class="pillar-right">
       <div class="benefit-flow">
@@ -588,87 +558,6 @@
   </div>
 </div>
 
-<!-- SLIDE 7: INVESTMENT -->
-<div id="slide-7" class="slide">
-  <div class="invest-eyebrow">INVESTMENT</div>
-  <div class="invest-title">One Offer. Everything Included.</div>
-  <div class="invest-body">
-    <div class="offer-card">
-      <div class="offer-badge">CORE OFFER</div>
-      <div>
-        <div class="offer-price">$7,800</div>
-        <div class="offer-price-sub">One-time · 90-day done-for-you engagement</div>
-      </div>
-      <div class="hdivider"></div>
-      <div class="offer-features">
-        <div class="offer-feature"><span class="offer-check">✓</span>Offer &amp; Messaging Build</div>
-        <div class="offer-feature"><span class="offer-check">✓</span>Meta Ad Campaigns</div>
-        <div class="offer-feature"><span class="offer-check">✓</span>AI Intake Agent (24/7)</div>
-        <div class="offer-feature"><span class="offer-check">✓</span>Automated CRM &amp; Pipelines</div>
-        <div class="offer-feature"><span class="offer-check">✓</span>Review &amp; Reputation System</div>
-        <div class="offer-feature"><span class="offer-check">✓</span>Referral Incentive Scheme</div>
-        <div class="offer-feature"><span class="offer-check">✓</span>Quarterly Reactivation Campaigns</div>
-        <div class="offer-feature hl"><span class="offer-check">✓</span>Hired &amp; Trained Intake Team<span class="included-badge">INCLUDED</span></div>
-      </div>
-      <div class="hdivider"></div>
-      <div class="guar-strip">
-        <div class="guar-strip-row">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z" stroke="#A0C8FF" stroke-width="1.6" fill="#A0C8FF" fill-opacity="0.1"/><path d="M9 12l2 2 4-4" stroke="#A0C8FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="guar-strip-text">Guaranteed results — backed by contract</span>
-        </div>
-        <div class="guar-strip-sub">Don't hit your patient goal? We refund our fee.</div>
-      </div>
-    </div>
-    <div class="breakdown-col">
-      <div class="breakdown-label">FULL COST BREAKDOWN</div>
-      <div class="cost-row" style="border-left:3px solid #3B7DD8">
-        <div class="cost-icon-wrap" style="background:rgba(59,125,216,0.15);border:1px solid rgba(59,125,216,0.3)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="3" stroke="#3B7DD8" stroke-width="1.6" fill="#3B7DD8" fill-opacity="0.1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="#3B7DD8" stroke-width="1.6"/><circle cx="12" cy="14" r="2" stroke="#3B7DD8" stroke-width="1.4"/></svg>
-        </div>
-        <div style="flex:1">
-          <div class="cost-lbl">Our Fee</div>
-          <div style="display:flex;align-items:baseline"><span class="cost-amt">$7,800</span><span class="cost-sub">One-time · 90-day engagement</span></div>
-        </div>
-        <div class="cost-note">Full system build + management. Yours to keep.</div>
-      </div>
-      <div class="cost-row" style="border-left:3px solid #E8843A">
-        <div class="cost-icon-wrap" style="background:rgba(232,132,58,0.15);border:1px solid rgba(232,132,58,0.3)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="4" stroke="#E8843A" stroke-width="1.6"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="#E8843A" stroke-width="1.6" stroke-linecap="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85" stroke="#E8843A" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </div>
-        <div style="flex:1">
-          <div class="cost-lbl">Done-For-You Staffing</div>
-          <div style="display:flex;align-items:baseline"><span class="cost-amt">$10/hr</span><span class="cost-sub">Per hour worked · billed directly</span></div>
-        </div>
-        <div class="cost-note">Only pay for hours your intake team logs.</div>
-      </div>
-      <div class="cost-row" style="border-left:3px solid #2EAD72">
-        <div class="cost-icon-wrap" style="background:rgba(46,173,114,0.15);border:1px solid rgba(46,173,114,0.3)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#2EAD72" stroke-width="1.6" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2EAD72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div style="flex:1">
-          <div class="cost-lbl">Monthly Ad Spend</div>
-          <div style="display:flex;align-items:baseline"><span class="cost-amt">Your choice</span><span class="cost-sub">$2K or $4K/mo · direct to Meta</span></div>
-        </div>
-        <div class="cost-note">You control the budget. We manage every dollar.</div>
-      </div>
-      <div class="adspend-box">
-        <div class="adspend-lbl">AD SPEND · GUARANTEED PATIENT RESULTS</div>
-        <div class="adspend-row">
-          <div class="adspend-spend">$2,000/mo</div>
-          <div class="adspend-bar-bg"><div class="adspend-bar-fill" style="width:50%;background:linear-gradient(90deg,rgba(46,173,114,0.7),#2EAD72)"></div></div>
-          <div class="adspend-result" style="color:#2EAD72">20 Patients Guaranteed</div>
-        </div>
-        <div class="adspend-row">
-          <div class="adspend-spend">$4,000/mo</div>
-          <div class="adspend-bar-bg"><div class="adspend-bar-fill" style="width:100%;background:linear-gradient(90deg,rgba(58,174,204,0.7),#3AAECC)"></div></div>
-          <div class="adspend-result" style="color:#3AAECC">40 Patients Guaranteed</div>
-        </div>
-        <div class="adspend-note">* Ad spend paid directly to Meta. Guarantee valid with full campaign compliance throughout the 90-day period.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 </div><!-- /content -->
 
 <!-- FOOTER -->
@@ -680,17 +569,17 @@
 </div><!-- /app -->
 
 <script>
-  const TOTAL = 7;
-  const ACCENTS = ['#ffffff','#3B7DD8','#2EAD72','#E8843A','#E84040','#9B59D0','#3AAECC','#C0A030'];
-  const LABELS  = ['THE SYSTEM','OFFER & MESSAGING','PAID LEAD GEN','QUALIFICATION & INTAKE','REVIEWS & REPUTATION','REFERRAL SYSTEM','REACTIVATION','INVESTMENT'];
-  const SLIDE_LABELS = ['Overview','Pillar 1 of 6','Pillar 2 of 6','Pillar 3 of 6','Pillar 4 of 6','Pillar 5 of 6','Pillar 6 of 6','Investment'];
+  const TOTAL = 6;
+  const ACCENTS = ['#0F1623','#3B7DD8','#2EAD72','#E8843A','#E84040','#9B59D0','#3AAECC'];
+  const LABELS  = ['THE SYSTEM','OFFER & MESSAGING','PAID LEAD GEN','QUALIFICATION & INTAKE','REVIEWS & REPUTATION','REFERRAL SYSTEM','REACTIVATION'];
+  const SLIDE_LABELS = ['Overview','Pillar 1 of 6','Pillar 2 of 6','Pillar 3 of 6','Pillar 4 of 6','Pillar 5 of 6','Pillar 6 of 6'];
   let current = 0;
 
   const dotsEl = document.getElementById('dots');
   for (let i = 0; i <= TOTAL; i++) {
     const d = document.createElement('button');
     d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.style.background = i === 0 ? ACCENTS[0] : 'rgba(255,255,255,0.12)';
+    d.style.background = i === 0 ? ACCENTS[0] : 'rgba(0,0,0,0.12)';
     d.addEventListener('click', () => goTo(i));
     dotsEl.appendChild(d);
   }
@@ -699,7 +588,7 @@
     document.getElementById('slide-' + current).classList.remove('active');
     const oldDot = dotsEl.children[current];
     oldDot.classList.remove('active');
-    oldDot.style.background = 'rgba(255,255,255,0.12)';
+    oldDot.style.background = 'rgba(0,0,0,0.12)';
     current = Math.max(0, Math.min(TOTAL, idx));
     document.getElementById('slide-' + current).classList.add('active');
     const newDot = dotsEl.children[current];
